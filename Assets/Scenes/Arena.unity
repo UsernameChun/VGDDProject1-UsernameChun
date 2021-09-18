@@ -884,12 +884,12 @@ PrefabInstance:
     - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
         type: 3}
       propertyPath: m_Attacks.Array.data[2].m_Cooldown
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
         type: 3}
       propertyPath: m_Attacks.Array.data[2].m_Duration
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
         type: 3}
