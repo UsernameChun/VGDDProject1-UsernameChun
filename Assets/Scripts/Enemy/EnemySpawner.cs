@@ -14,8 +14,14 @@ public class EnemySpawner : MonoBehaviour
     private EnemySpawnInfo[] m_Enemies;
     #endregion
 
+    #region private Variables
+    private bool spawning;
+
+    #endregion
+
     #region Initialization
     private void Awake() {
+        spawning = true;
         StartSpawning();
     }
     #endregion
@@ -29,35 +35,55 @@ public class EnemySpawner : MonoBehaviour
     }
     private IEnumerator Spawn(int enemyID)
     {
-        EnemySpawnInfo info = m_Enemies[enemyID];
-        int i = 0;
-        bool alwaysSpawn = false;
-        if (info.NumberToSpawn == 0)
+        if (spawning)
         {
-            alwaysSpawn = true;
-        }
-        while (alwaysSpawn || i < info.NumberToSpawn)
-        {
-            yield return new WaitForSeconds(info.TimeToNextSpawn);
-            float xVal = m_bounds.x / 2;
-            float yVal = m_bounds.y / 2;
-            float zVal = m_bounds.z / 2;
 
-
-            Vector3 spawnPos = new Vector3(
-                Random.Range(-xVal, xVal),
-                Random.Range(-yVal, yVal),
-                Random.Range(-zVal, zVal)
-            );
-
-            spawnPos += transform.position;
-            Instantiate(info.EnemyGO, spawnPos, Quaternion.identity);
-
-            if (!alwaysSpawn)
+        
+            EnemySpawnInfo info = m_Enemies[enemyID];
+            int i = 0;
+            bool alwaysSpawn = false;
+            if (info.NumberToSpawn == 0)
             {
-                i++;
+                alwaysSpawn = true;
             }
+            while (alwaysSpawn || i < info.NumberToSpawn)
+            {
+                yield return new WaitForSeconds(info.TimeToNextSpawn);
+                float xVal = m_bounds.x / 2;
+                float yVal = m_bounds.y / 2;
+                float zVal = m_bounds.z / 2;
+
+
+                Vector3 spawnPos = new Vector3(
+                    Random.Range(-xVal, xVal),
+                    Random.Range(-yVal, yVal),
+                    Random.Range(-zVal, zVal)
+                );
+
+                spawnPos += transform.position;
+                Instantiate(info.EnemyGO, spawnPos, Quaternion.identity);
+
+                if (!alwaysSpawn)
+                {
+                    i++;
+                }
+            }
+        } else
+        {
+            yield return null;
         }
+    }
+    #endregion
+
+    #region  Time stop Methods
+    public void stop() {
+        Debug.Log("stopped spawning");
+        spawning = false;
+    }
+
+    public void cont() {
+        Debug.Log("spawning again");
+        spawning = true;
     }
     #endregion
 }

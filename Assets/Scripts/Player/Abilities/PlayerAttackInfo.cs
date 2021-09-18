@@ -108,11 +108,23 @@ public class PlayerAttackInfo
             return m_Color;
         }
     }
+
+    [SerializeField]
+    [Tooltip("The duration of the ability")]
+
+    private float m_Duration;
+
     #endregion
 
     #region  Public Variables
 
     public float Cooldown 
+    {
+        get;
+        set;
+    }
+
+    public float Duration
     {
         get;
         set;
@@ -127,6 +139,14 @@ public class PlayerAttackInfo
 
     public bool isReady() {
         return Cooldown <= 0;
+    }
+
+    public bool ended() {
+        return Duration <= 0;
+    }
+
+    public void ResetDuration() {
+        Duration = m_Duration;
     }
     #endregion
 }
