@@ -502,6 +502,11 @@ MonoBehaviour:
       type: 3}
     m_TimeToNextSpawn: 2
     m_NumberToSpawn: 0
+  - m_Name: SpeedyBoi
+    m_EnemyGO: {fileID: 2044154806837709994, guid: d4b927729812a61b29e590b94d870cda,
+      type: 3}
+    m_TimeToNextSpawn: 5
+    m_NumberToSpawn: 0
 --- !u!4 &1625036269
 Transform:
   m_ObjectHideFlags: 0
@@ -573,7 +578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: fa25a1cc006305247ab893be660a345e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -803,6 +808,61 @@ PrefabInstance:
       objectReference: {fileID: 1290858685}
     - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
         type: 3}
+      propertyPath: m_Attacks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_name
+      value: TimeStop
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_name
+      value: MegaLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Button
+      value: Fire3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Button
+      value: Fire2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Color.b
+      value: 0.9529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Color.g
+      value: 0.16078433
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Color.r
+      value: 0.63147724
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Color.b
+      value: 0.16078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Color.g
+      value: 0.16078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Color.r
+      value: 0.9529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
       propertyPath: m_Attacks.Array.data[0].m_Offset.x
       value: 0.4
       objectReference: {fileID: 0}
@@ -823,12 +883,109 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
         type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Cooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Offset.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Offset.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_Offset.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Cooldown
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Offset.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Offset.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_Offset.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_AbilityGO
+      value: 
+      objectReference: {fileID: 1906716352176485695, guid: de180370b469417f59cb33c070900d6e,
+        type: 3}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_AbilityGO
+      value: 
+      objectReference: {fileID: 8486783592351315732, guid: 1394129545acecd47a1fc7d35de81c8f,
+        type: 3}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_FrozenTime
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_HealthCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_WindUpTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_FrozenTime
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_HealthCost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_WindUpTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
       propertyPath: m_Attacks.Array.data[0].m_TriggerName
       value: ShootLaser
       objectReference: {fileID: 0}
     - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
         type: 3}
       propertyPath: m_Attacks.Array.data[1].m_TriggerName
+      value: ShootMegaLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[2].m_TriggerName
+      value: ShootTimeStop
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398626219910801849, guid: d1e238927c959bb9cbd131e8f6f121bc,
+        type: 3}
+      propertyPath: m_Attacks.Array.data[3].m_TriggerName
       value: ShootMegaLaser
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerAttackInfo attack = m_Attacks[i];
             attack.Cooldown = 0;
+            attack.ResetDuration();
 
             if (attack.WindUpTime > attack.FrozenTime) {
                 Debug.LogError(attack.AttackName + "Has a tim that is larger than the amount of tim ethat the player is p_frozenTimer for");
@@ -182,6 +183,11 @@ public class PlayerController : MonoBehaviour
         Vector3 offset = transform.forward * attack.Offset.z + transform.right * attack.Offset.y + transform.up * attack.Offset.x;
         GameObject go = Instantiate(attack.AbilityGO, transform.position + offset, cc_Rb.rotation);
         go.GetComponent<Ability>().Use(transform.position + offset);
+        Debug.Log(attack.Duration);
+        if (attack.TriggerName == "ShootTimeStop") {
+            StartCoroutine(durationCountdown(attack.Duration, attack));
+            StartCoroutine(stopSpawning(attack.Duration));
+        }
         StopCoroutine(toColor);
         StartCoroutine(ChangeColor(p_DefaultColor, 50));
         yield return new WaitForSeconds(attack.Cooldown);
@@ -212,5 +218,26 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    #endregion
+
+
+    #region Duration Methods
+
+    private IEnumerator durationCountdown(float seconds, PlayerAttackInfo attack) {
+        yield return new WaitForSeconds(seconds);
+        GameObject[] freezeList = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject i in freezeList) {
+            i.GetComponent<EnemyController>().unfreeze();
+        }
+        attack.ResetDuration();
+    }
+
+    private IEnumerator stopSpawning(float seconds) {
+        GameObject spawner = GameObject.Find("SpawnManager");
+        spawner.GetComponent<EnemySpawner>().stop();
+        yield return new WaitForSeconds(seconds);
+        spawner.GetComponent<EnemySpawner>().cont();
+    }
+
     #endregion
 }

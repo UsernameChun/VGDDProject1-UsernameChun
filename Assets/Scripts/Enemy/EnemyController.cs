@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour
 
     #region Private Variables
     private float p_curHealth;
+
+    private float p_curSpeed;
     #endregion
 
     #region Cached Components
@@ -52,6 +54,8 @@ public class EnemyController : MonoBehaviour
     private void Awake() {
         p_curHealth = m_MaxHealth;
         cc_Rb = GetComponent<Rigidbody>();
+        p_curSpeed = m_Speed;
+        // freeze();
     }
 
     private void Start() {
@@ -64,7 +68,7 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate() {
         Vector3 dir = transform.position - cr_Player.position;
         dir.Normalize();
-        cc_Rb.MovePosition(cc_Rb.position - m_Speed * dir * Time.fixedDeltaTime);
+        cc_Rb.MovePosition(cc_Rb.position - p_curSpeed * dir * Time.fixedDeltaTime);
 
     }
     #endregion
@@ -92,6 +96,18 @@ public class EnemyController : MonoBehaviour
             Instantiate(m_DeathExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+    #endregion
+
+    #region Slowdown methods
+    public void freeze() {
+        Debug.LogError("Freezing");
+        p_curSpeed = 0;
+    }
+
+    public void unfreeze() {
+        Debug.LogError("Unfreezing");
+        p_curSpeed = m_Speed;
     }
     #endregion
 }
